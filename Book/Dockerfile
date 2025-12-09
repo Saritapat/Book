@@ -6,7 +6,7 @@ COPY pom. xml.
 COPY src./ src
 RUN mvn-DskipTests package
 
-FROM elipse-temurin:17-jre
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app.jar
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
